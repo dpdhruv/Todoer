@@ -1,0 +1,16 @@
+@import '../../styles/variables.scss';
+
+.outline-button{
+    background: transparent;
+}
+.todo-solid-button{
+    letter-spacing: 1px;
+    padding:5px 35px !important;
+    font-family: 'Raleway',sans-serif;
+    color:white !important;
+    background: $todo-red !important;
+    &:hover{
+        background: $hover-color !important;
+        transition: 0.2s ease-in-out all;
+    }
+}

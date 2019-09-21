@@ -1,0 +1,21 @@
+.font{
+    font-family: 'Raleway',sans-serif;
+}
+
+.card-wrapper{
+    padding:130px 0px;
+}
+
+.banner-img{
+    background:url('../../assets/img/banner.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-height: 100vh;
+    height:100vh;
+    flex:1;
+}
+
+.card-container{
+    flex:1;
+}

@@ -1,0 +1,18 @@
+.todo-card{
+    box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.03);
+    border:none !important;
+    border-radius: 5px !important;
+
+    .todo-card-title{
+        color:black;
+        font-weight: 700;
+        font-family: 'Raleway',sans-serif;
+        letter-spacing: 2px;
+        padding-top:15px;
+    }
+
+    .todo-card-body{
+        padding-top:30px;
+        padding-bottom:30px;
+    }
+}

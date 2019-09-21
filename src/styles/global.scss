@@ -1,0 +1,23 @@
+/* GLOBAL CSS FILE */
+@import 'variables.scss';
+
+
+label{
+    letter-spacing:1px;
+    font-family: 'Raleway' , sans-serif;
+    font-weight: lighter;
+}
+
+// input{
+//     padding:0px 0px 0px 8px !important;
+//     height:calc(1em + 1rem) !important;
+// }
+
+.input-group-text{
+    background: transparent;
+    color: $todo-red;
+}
+
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgba(151, 183, 218, 0.25);
+}
