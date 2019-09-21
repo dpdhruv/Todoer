@@ -2,20 +2,38 @@
 import React, { Component } from 'react';
 import { Card } from '../../components/Card';
 import { SolidButton } from '../../components/Button';
-import {placeholder_for_username} from '../../constants/index';
+import { ScreenLoader } from '../../components/Loader';
+import { placeholder_for_username } from '../../constants/index';
 import './auth.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser,faKey } from '@fortawesome/free-solid-svg-icons'
+import { faUser, faKey } from '@fortawesome/free-solid-svg-icons'
 
 export class index extends Component {
 
-	login(e) {
+	constructor(props) {
+		super(props)
+
+		this.state = {
+			loaded: true,
+			loading:false
+		}
+	}
+
+	componentDidMount(){
+	}
+
+
+	login=(e)=>{
 		e.preventDefault();
-		alert('clicked')
+		this.setState({
+			loading:true
+		})
 	}
 
 	render() {
+		if (!this.state.loaded) return <ScreenLoader/>
+
 		return (
 			<div className="container-fluid">
 				<div className="row d-flex">
@@ -34,9 +52,9 @@ export class index extends Component {
 														<FontAwesomeIcon icon={faUser} />
 													</span>
 												</div>
-												<input 
-												className="form-control" 
-												placeholder={placeholder_for_username}
+												<input
+													className="form-control"
+													placeholder={placeholder_for_username}
 												/>
 											</div>
 										</div>
@@ -48,17 +66,17 @@ export class index extends Component {
 														<FontAwesomeIcon icon={faKey} />
 													</span>
 												</div>
-												<input 
-												type="password"
-												className="form-control" 
-												placeholder="Enter Password"
+												<input
+													type="password"
+													className="form-control"
+													placeholder="Enter Password"
 												/>
 											</div>
 										</div>
 
 
 										<div className="text-center pt-2">
-											<SolidButton title="Login" onClick={this.login} />
+											<SolidButton title="Login" onClick={this.login} loading={this.state.loading} />
 										</div>
 									</form>
 								</Card>

@@ -1,0 +1,37 @@
+.loading{
+  display: flex;
+  position: fixed;
+  top:0;
+  bottom:0;
+  left:0;
+  right:0;
+  background: #FFF6F6;
+  flex-direction: row;
+}
+.loader-container{
+  display: flex;
+}
+
+.loader-text{
+  align-self: center;
+}
+
+.loader{
+  width: 25px;
+  height: 25px;
+  border-radius:50%;
+  border:2px solid #E1C2C2;
+  border-top:2px solid #cc3743;
+  animation: spin 2s linear infinite;
+  margin: 0 auto;
+  align-self: center;
+}
+
+@keyframes spin{
+  0%{
+    transform: rotate(0deg)
+  }
+  100%{
+    transform: rotate(360deg)
+  }
+}
