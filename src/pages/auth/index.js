@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import { Card } from '../../components/Card';
 import { SolidButton } from '../../components/Button';
-import {placeholder_for_username,placeholder_for_password} from '../../constants/index';
+import {placeholder_for_username} from '../../constants/index';
 import './auth.scss';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
