@@ -4,13 +4,21 @@
     background: transparent;
 }
 .todo-solid-button{
+    border-radius:4px !important;
     letter-spacing: 1px;
-    padding:5px 35px !important;
+    height: 32px;
+    padding:0px 30px !important;
     font-family: 'Raleway',sans-serif;
     color:white !important;
     background: $todo-red !important;
+    box-shadow: 0 2px 0 rgba(0,0,0,0.045);
+    animation: easy 0.5s; 
     &:hover{
         background: $hover-color !important;
         transition: 0.2s ease-in-out all;
     }
+}
+
+.todo-button-loading{
+    padding:0px 40px !important;
 }

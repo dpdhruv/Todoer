@@ -5,7 +5,7 @@ export const ButtonLoader = props => {
   return (
     <div className="loader-container">
       <div className="loader"></div>
-      <div className="loader-text ml-2">Loading</div>
+      <div className="loader-text ml-2">{props.children}</div>
     </div>
   )
 }
