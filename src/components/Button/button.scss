@@ -17,6 +17,9 @@
         background: $hover-color !important;
         transition: 0.2s ease-in-out all;
     }
+    &:focus{
+        box-shadow: none !important;
+    }
 }
 
 .todo-button-loading{
