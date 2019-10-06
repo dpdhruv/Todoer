@@ -1,0 +1,12 @@
+@import '../styles/mixins.scss';
+
+.layout{
+  padding-left:250px;
+  @include mobile{
+    padding-left: 0;
+  }
+}
+
+.app-content{
+  width: 100%;
+}

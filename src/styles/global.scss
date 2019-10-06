@@ -1,6 +1,9 @@
 /* GLOBAL CSS FILE */
 @import 'variables.scss';
 
+body{
+    font-family: 'Raleway' , sans-serif !important;
+}
 
 label{
     letter-spacing:1px;
@@ -8,10 +11,6 @@ label{
     font-weight: lighter;
 }
 
-// input{
-//     padding:0px 0px 0px 8px !important;
-//     height:calc(1em + 1rem) !important;
-// }
 
 .input-group-text{
     background: transparent;

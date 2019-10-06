@@ -25,6 +25,8 @@ export class index extends Component {
     e.preventDefault();
     this.setState({
       loading: true
+    },()=>{
+      this.props.history.push('/dashboard')
     });
   };
 
@@ -78,8 +80,8 @@ export class index extends Component {
                         onClick={this.login}
                         loading={this.state.loading}
                       >
-												Login	
-											</SolidButton>
+                        Login
+                      </SolidButton>
                     </div>
                   </form>
                 </Card>

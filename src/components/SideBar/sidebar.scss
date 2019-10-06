@@ -1,10 +1,46 @@
 .sidemenu{
   position: fixed;
-  background: #cc3743;
+  background-image: linear-gradient(to left, #c86a6a, #ca5f60, #cb5356, #cc464d, #cc3743);
   height: 100%;
   z-index: 1;
   top:0;
+  left:0;
+  bottom:0;
   max-width: 300px;
   width: 250px;
-  box-shadow: -1px 0px 7px 1px black;
+  box-shadow: -1px 0px 7px 1px darkgray; 
+}
+
+.logo{
+  color: white;
+  font-weight: bolder;
+  text-align: center;
+  padding: 10px;
+}
+
+.divider{
+border: 1px solid white;
+}
+
+.menu-item{
+  padding: 10px;
+  color:white;
+  font-weight: 500;
+  &:hover{
+    color: black;
+    cursor: pointer;
+    background: rgba($color: #ffffff, $alpha: 0.3);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    transition: 0.2s ease-in-out all;
+  }
+}
+
+.active-menu-item{
+  color: black;
+  cursor: pointer;
+  background: rgba($color: #ffffff, $alpha: 0.5);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  transition: 0.2s ease-in-out all;
 }
