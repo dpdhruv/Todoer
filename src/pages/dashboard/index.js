@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Card} from '../../components/Card';
-
+// import {Toasts} from '../../components/Toasts';
 export class index extends Component {
   render() {
     return (

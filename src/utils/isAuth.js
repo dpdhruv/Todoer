@@ -1,3 +1,8 @@
 export const isLoggedIn = ()=>{
-  return true;
+  var token = localStorage.getItem('token');
+  if(token){
+    return true;
+  }else{
+    return false;
+  }
 }

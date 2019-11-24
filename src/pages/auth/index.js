@@ -4,30 +4,58 @@ import { Card } from "../../components/Card";
 import { SolidButton } from "../../components/Button";
 import { ScreenLoader } from "../../components/Loader";
 import { placeholder_for_username } from "../../constants/index";
+import {isLoggedIn} from '../../utils/isAuth';
 import "./auth.scss";
 
+import {authRequest} from '../../redux/actions';
+import {connect} from 'react-redux';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
 
 export class index extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       loaded: true,
-      loading: false
+      loading: false,
+      username: "",
+      password: ""
     };
   }
 
   componentDidMount() {}
-
+  componentDidUpdate(prevProps){
+    const {isLoading,auth,error} = this.props;
+    if(isLoading!==prevProps.isLoading){
+      this.setState({
+        loading:isLoading
+      })
+    }
+    
+    if(auth!==prevProps.auth){
+      const {token}=auth;
+      if(token){
+        localStorage.setItem('token',token);
+        if(localStorage.getItem('token')){
+          this.props.history.push("/dashboard");
+        }
+      }else{
+        alert('something went wrong')
+      }
+    } 
+  }
   login = e => {
     e.preventDefault();
-    this.setState({
-      loading: true
-    },()=>{
-      this.props.history.push('/dashboard')
-    });
+    let payload = {
+      username:this.state.username,
+      password:this.state.password
+    }
+    this.props.authentication(payload);
+    // this.setState({loading: true},
+    //   () => {
+    //     this.props.history.push("/dashboard");
+    //   }
+    // );
   };
 
   render() {
@@ -56,6 +84,9 @@ export class index extends Component {
                         <input
                           className="form-control"
                           placeholder={placeholder_for_username}
+                          onChange={e => {
+                            this.setState({ username: e.target.value });
+                          }}
                         />
                       </div>
                     </div>
@@ -71,10 +102,21 @@ export class index extends Component {
                           type="password"
                           className="form-control"
                           placeholder="Enter Password"
+                          onChange={e => {
+                            this.setState({ password: e.target.value });
+                          }}
                         />
                       </div>
                     </div>
-
+                    <span
+                      className="span-text"
+                      onClick={() => {
+                        this.props.history.push("/signup");
+                      }}
+                    >
+                      Already have an account?
+                    </span>
+                    <br />
                     <div className="text-center pt-2">
                       <SolidButton
                         onClick={this.login}
@@ -94,4 +136,14 @@ export class index extends Component {
   }
 }
 
-export default index;
+const mapStateToProps = ({isLoading , auth , error}) =>({
+  isLoading,
+  auth,
+  error  
+});
+
+const mapDispatchToProps = dispatch =>({
+  authentication:(payload)=>dispatch(authRequest(payload))
+})
+
+export default connect(mapStateToProps,mapDispatchToProps)(index);
