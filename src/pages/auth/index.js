@@ -4,11 +4,11 @@ import { Card } from "../../components/Card";
 import { SolidButton } from "../../components/Button";
 import { ScreenLoader } from "../../components/Loader";
 import { placeholder_for_username } from "../../constants/index";
-import {isLoggedIn} from '../../utils/isAuth';
+import { isLoggedIn } from "../../utils/isAuth";
 import "./auth.scss";
 
-import {authRequest} from '../../redux/actions';
-import {connect} from 'react-redux';
+import { authRequest } from "../../redux/actions";
+import { connect } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faKey } from "@fortawesome/free-solid-svg-icons";
 
@@ -24,32 +24,32 @@ export class index extends Component {
   }
 
   componentDidMount() {}
-  componentDidUpdate(prevProps){
-    const {isLoading,auth,error} = this.props;
-    if(isLoading!==prevProps.isLoading){
+  componentDidUpdate(prevProps) {
+    const { isLoading, auth, error } = this.props;
+    if (isLoading !== prevProps.isLoading) {
       this.setState({
-        loading:isLoading
-      })
+        loading: isLoading
+      });
     }
-    
-    if(auth!==prevProps.auth){
-      const {token}=auth;
-      if(token){
-        localStorage.setItem('token',token);
-        if(localStorage.getItem('token')){
+
+    if (auth !== prevProps.auth) {
+      const { token } = auth;
+      if (token) {
+        localStorage.setItem("token", token);
+        if (localStorage.getItem("token")) {
           this.props.history.push("/dashboard");
         }
-      }else{
-        alert('something went wrong')
+      } else {
+        alert("something went wrong");
       }
-    } 
+    }
   }
   login = e => {
     e.preventDefault();
     let payload = {
-      username:this.state.username,
-      password:this.state.password
-    }
+      username: this.state.username,
+      password: this.state.password
+    };
     this.props.authentication(payload);
     // this.setState({loading: true},
     //   () => {
@@ -136,14 +136,14 @@ export class index extends Component {
   }
 }
 
-const mapStateToProps = ({isLoading , auth , error}) =>({
+const mapStateToProps = ({ isLoading, auth, error }) => ({
   isLoading,
   auth,
-  error  
+  error
 });
 
-const mapDispatchToProps = dispatch =>({
-  authentication:(payload)=>dispatch(authRequest(payload))
-})
+const mapDispatchToProps = dispatch => ({
+  authentication: payload => dispatch(authRequest(payload))
+});
 
-export default connect(mapStateToProps,mapDispatchToProps)(index);
+export default connect(mapStateToProps, mapDispatchToProps)(index);
