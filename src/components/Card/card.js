@@ -8,7 +8,7 @@ export const Card = props => {
                 <div className="todo-card-title">
                     {props.title}
                 </div>
-                <div className={`todo-card-body ${props.bodyAlign}`}>
+                <div className="todo-card-body">
                     {props.children}
                 </div>
             </div>
